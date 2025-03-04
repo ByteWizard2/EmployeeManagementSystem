@@ -3,12 +3,12 @@ import Header from '../other/Header'
 import TaskListNumbers from '../other/TaskListNumbers'
 import TAskList from '../TaskList/TAskList'
 
-function EmployeeDashboard() {
+function EmployeeDashboard({data}) {
   return (
     <div className='p-10 bg-[#1c1c1c] h-screen'>
-        <Header/>
-        <TaskListNumbers/>
-        <TAskList/>
+        <Header data={data}/>
+        <TaskListNumbers data={data}/>
+        <TAskList data={data}/>
     </div>
     
   )
