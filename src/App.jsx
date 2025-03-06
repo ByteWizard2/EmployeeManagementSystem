@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
-import TAskList from './components/TaskList/TAskList'
+// import TAskList from './components/TaskList/TAskList'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
-import { getLocalStorage, setLocalStorage } from './utils/localStorage'
+// import { getLocalStorage, setLocalStorage } from './utils/localStorage'
 import { AuthContext } from './context/AuthProvider'
 
 const App = () => {
@@ -13,7 +13,8 @@ const App = () => {
   const authData = useContext(AuthContext)
 
   useEffect(()=>{
-    const loggedInUser = localStorage.getItem('loggedInUser')
+     const loggedInUser = localStorage.getItem('loggedInUser')
+
 
     if(loggedInUser){
       const userData = JSON.parse(loggedInUser)
@@ -46,7 +47,7 @@ const App = () => {
   return (
     <div>
       {!user ? <Login handleLogin={handleLogin}/>: ""}
-      {user=='admin' ?<AdminDashboard/>: (user == 'employee'?<EmployeeDashboard data={LoggedInUserData}/>:null)}
+      {user=='admin' ?<AdminDashboard changeUser={setUser}/>: (user == 'employee'?<EmployeeDashboard changeUser={setUser} data={LoggedInUserData}/>:null)}
     </div>
   )
 }

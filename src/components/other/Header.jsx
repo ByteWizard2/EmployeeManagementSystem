@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Header({data}) {
+function Header({props}) {
 
   // const [userName, setUserName] = useState('')
 
@@ -12,7 +12,7 @@ function Header({data}) {
 
   const logOutuser = ()=>{
     localStorage.setItem('loggedInUser','')
-    window.location.reload() 
+      props.changeUser('')
   }
   return (
     <div className='flex items-center justify-between'>
